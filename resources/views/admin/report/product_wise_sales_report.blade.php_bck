@@ -1,0 +1,282 @@
+@extends('layouts.admin')
+@section('admin-content')
+<style>
+	.content-header{
+		display: none !important;
+	}
+</style>
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+<div class="srcBtnWrap">
+	<div class="card">
+		<div class="row align-items-center justify-content-between">
+			<div class="col-auto">
+				<h4>Sale Report</h4>
+			</div>
+			<div class="col d-flex invoiceAmout justify-content-center">
+				<ul class="d-flex">
+					<li>Total Invoice : <span>1234</span></li>
+					<li>Total Qty : <span>3000</span></li>
+					<li>Total Amount : <span>1234567</span></li>
+					<!-- <li>advanced Search : <span>0</span></li> -->
+				</ul>
+			</div>
+			<div class="col-auto">
+				<a href="javascript:;" class="searchDropBtn">Advance Search <i class="fas fa-chevron-circle-down"></i></a>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="card toggleCard">
+	<div class="row">
+		<div class="col-lg-3 col-md-3 col-sm-12 col-12">
+			<div class="form-group">
+				<label for="date_search" class="mr-3">Date Filter</label>
+				<input type="text" class="form-control" name="datefilter" id="reportrange" placeholder="Select Date" autocomplete="off">
+			</div>
+		</div>
+		<div class="col-lg-3 col-md-3 col-sm-12 col-12">
+			<div class="form-group">
+				<label for="customer_last_name" class="form-label">By Customer Name / Mobile</label>
+				<input type="text" class="form-control" id="" name="" value="">
+			</div>
+		</div>
+		<div class="col-lg-3 col-md-3 col-sm-12 col-12">
+			<div class="form-group">
+				<label for="customer_last_name" class="form-label">Bill No.</label>
+				<input type="text" class="form-control" id="" name="" value="">
+			</div>
+		</div>
+		<div class="col-lg-3 col-md-3 col-sm-12 col-12">
+			<div class="form-group">
+				<label for="customer_last_name" class="form-label">Product Name / Barcode</label>
+				<input type="text" class="form-control" id="" name="" value="">
+			</div>
+		</div>
+		<div class="col-lg-3 col-md-3 col-sm-12 col-12">
+			<div class="form-group">
+				<label for="" class="form-label">Select Category</label>
+				<select class="form-control custom-select form-control-select" id="">
+					<option value="">Select</option>
+				</select>
+			</div>
+		</div>
+		<div class="col-lg-3 col-md-3 col-sm-12 col-12">
+			<div class="form-group">
+				<label for="" class="form-label">Select Size</label>
+				<select class="form-control custom-select form-control-select" id="">
+					<option value="">Select 1</option>
+				</select>
+			</div>
+		</div>
+		<div class="col-lg-3 col-md-3 col-sm-12 col-12">
+			<div class="form-group">
+				<label for="" class="form-label">Select Brand</label>
+				<select class="form-control custom-select form-control-select" id="">
+					<option value="">Select 1</option>
+				</select>
+			</div>
+		</div>
+		<div class="col-lg-3 col-md-3 col-sm-12 col-12">
+			<div class="form-group">
+				<label for="" class="form-label">Select Subcategory</label>
+				<select class="form-control custom-select form-control-select" id="">
+					<option value="">Select 1</option>
+				</select>
+			</div>
+		</div>
+		<div class="col-12">
+			<ul class="saveSrcArea d-flex align-items-center justify-content-center mb-2">
+				
+				<li>
+					<button class="saveBtn-2">Search <i class="fas fa-arrow-circle-right"></i></button>
+				</li>
+				<li class="d-flex align-items-center">
+					<div>
+						<select class="form-control custom-select form-control-select" id="">
+							<option value=""> Item Wise sales report</option>
+						</select>
+					</div>
+					<div>
+						<button class="srcBtnWrapGo"><i class="fas fa-download"></i></button>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</div>
+</div>
+<div class="row">
+  <div class="col-12">
+    <div class="card">
+      <x-alert />
+	  {{-- <div class="d-flex justify-content-between align-items-center mb-4">
+		<form method="get" id="search-form" class="form-inline" role="form">
+			<input type="hidden" name="item_id" value="{{$data['item_id']}}" id="item_id">
+			<input type="hidden" name="start_date" id="start_date" value="">
+			<input type="hidden" name="end_date" id="end_date" value="">
+			<div class="form-group">
+				<label for="date_search" class="mr-3">Date</label>
+				<input type="text" class="form-control" name="datefilter" id="reportrange" placeholder="Select Date" autocomplete="off">
+			</div>
+			<button type="submit" class="btn btn-primary ml-3">Search</button>
+		</form>
+		<a href="javascript:;" id="download" data-date="" class="downloadBtn"><i class="fas fa-download"></i> Download</a>
+	  </div> --}}
+	  
+      <div class="table-responsive dataTable-design">
+		{{-- <input type="data" name="date_filter" class="form-control searchDate" placeholder="Date"> --}}
+        <table id="product_wise_sale" class="table table-bordered">
+          <thead>
+			<th>Invoice No</th>
+            <th>Bill Date</th>
+			<th>Customer</th>
+			<th>Supplier</th>
+            <th>Product Name</th>
+            <th>Category</th>
+            <th>Sub Category</th>
+            <th>Qty</th>
+            <th>Size</th>
+            <th>Mrp</th>
+            <th>Total Cost</th>
+           </thead>
+          <tbody>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+@endsection
+
+@section('scripts') 
+<script type="text/javascript">
+
+
+
+/* $(document).on('change','#product_upload_file',function(){
+	this.form.submit();
+}); */
+
+$(function() {
+	var table = $('#product_wise_sale').DataTable({
+		/* dom: "<'row'<'col-xs-12'<'col-xs-6'l><'col-xs-6'p>>r>"+
+            "<'row'<'col-xs-12't>>"+
+            "<'row'<'col-xs-12'<'col-xs-6'i><'col-xs-6'p>>>", */
+		processing: true,
+		serverSide: true,
+		searchDelay: 350,
+		searching: false,
+		ajax: {
+			url : "{{ route('admin.report.sales.report.product.wise')}}",
+			data: function (d) {
+				d.start_date = $('input[name=start_date]').val();
+				d.end_date = $('input[name=end_date]').val();
+				d.id = $('input[name=item_id]').val();
+            }
+		},
+		columns: [
+			{
+				data: 'invoice_no',
+				name: 'invoice_no'
+			},	
+			{
+				data: 'sell_date',
+				name: 'sell_date'
+			},	
+			{
+				data: 'customer_name',
+				name: 'customer_name'
+			},	
+			{
+				data: 'supplier',
+				name: 'supplier'
+			},	
+			{
+				data: 'product_name',
+				name: 'product_name'
+			},	
+			{
+				data: 'category',
+				name: 'category'
+			},	
+			{
+				data: 'sub_category',
+				name: 'sub_category'
+			},		
+			{
+				data: 'product_qty',
+				name: 'product_qty'
+			},		
+			{
+				data: 'size_ml',
+				name: 'size_ml'
+			},		
+			{
+				data: 'product_mrp',
+				name: 'product_mrp'
+			},		
+			{
+				data: 'total_cost',
+				name: 'total_cost'
+			},		
+		]
+		
+	});
+	/* $(".searchDate").keyup(function(){
+        table.draw();
+    }); */
+
+	$('#search-form').on('submit', function(e) {
+        table.draw();
+        e.preventDefault();
+    });
+
+	$('#download').on("click",function(){
+		var start_date = $('input[name=start_date]').val();
+		//alert(start_date);
+		var end_date = $('input[name=end_date]').val();
+		var url = "{{route('admin.report.sales.product.download')}}";
+		$(this).attr('href',url+'?start_date='+start_date+'&end_date='+end_date);
+	})
+	//Start date range picker
+	/* var start = moment().subtract(29, 'days');
+    var end = moment();
+	 */
+
+   /*  function cb(start, end) {
+        //$('#reportrange span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'));
+        $('#reportrange').val(start.format('D-MM-YYYY') + ' - ' + end.format('D-MM-YYYY'));
+		$('#start_date').val(start.format('YYYY-MM-DD'));
+		$('#end_date').val(end.format('YYYY-MM-DD'));
+    } */
+
+    $('#reportrange').daterangepicker({
+        //startDate: start,
+        //endDate: end,
+		autoUpdateInput: false,
+        ranges: {
+           'Today': [moment(), moment()],
+           'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+           'Last 7 Days': [moment().subtract(6, 'days'), moment()],
+           'Last 30 Days': [moment().subtract(29, 'days'), moment()],
+           'This Month': [moment().startOf('month'), moment().endOf('month')],
+           'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
+        }
+    });
+
+    //cb(start, end);
+
+	$('input[name="datefilter"]').on('apply.daterangepicker', function(ev, picker) {
+      	$(this).val(picker.startDate.format('MM/DD/YYYY') + ' - ' + picker.endDate.format('MM/DD/YYYY'));
+	  	$('#start_date').val(picker.startDate.format('YYYY-MM-DD'));
+		$('#end_date').val(picker.endDate.format('YYYY-MM-DD'));
+  	});
+	//End Date range picker
+	$('.searchDropBtn').on("click",function(){
+		$(".toggleCard").slideToggle();
+	})
+});
+</script> 
+@endsection 

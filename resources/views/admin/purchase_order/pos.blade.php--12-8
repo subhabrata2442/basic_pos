@@ -1,0 +1,493 @@
+@extends('layouts.admin_pos')
+@section('admin-content')
+<div class="row">
+  <div class="col-md-9 pos-left">
+    <div class="card shadowPad">
+      <div class="searchBarSec">
+        <div class="row">
+          <div class="col-md-4">
+            <div class="form-group" id="scanBarcodeInput">
+              <!-- <label for="product_name" class="form-label">Scan Barcode/Enter Product Name</label> -->
+              <input type="text" class="form-control admin-input typeahead" id="scanBarcode" name="searchBarcode" value="" placeholder="Scan Barcode/Enter Product Name">
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="form-group">
+              <!-- <label for="product_name" class="form-label">Add Customer</label> -->
+              <select class="form-control form-control-sm" id="customer_id" name="customer_id">
+                <option value="0">Select Customer</option>
+              </select>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="form-group">
+              <!-- <label for="product_name" class="form-label">Scan Sales Invoice</label> -->
+              <input type="text" class="form-control admin-input" id="scanBarcodeForReturn" name="scanBarcodeForReturn" value="" autocomplete="off">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="cart-item">
+        <div class="table-responsive">
+          <table class="table table-sm table-striped mb-0" id="product_table">
+            <thead class="thead-dark">
+              <tr>
+                <th class="text-center" scope="col">#</th>
+                <th class="text-center " scope="col">Itemcode</th>
+                <th class="text-left " scope="col">Product</th>
+                <th class="text-center" scope="col">Unit</th>
+                <th class="text-center" scope="col">Qty</th>
+                <th class="text-right" scope="col">MRP</th>
+                <th class="text-center" scope="col">Discount</th>
+                <th class="text-center " scope="col">Add Disc</th>
+                <th class="text-right" scope="col">Unit Cost</th>
+                <th class="text-right" scope="col">Net Amount</th>
+                <th class="" scope="col"></th>
+              </tr>
+            </thead>
+            <tbody style="border:1px solid #ddd;" data-sales-list="">
+              <tr data-sales-item="0" class="">
+                <td class="text-center" data-item-index="">1</td>
+                <td class="text-center "><b data-item-itemcode="">suit</b></td>
+                <td class="text-left"><b data-item-name="" title="current stock : -16.0">fshfjh </b></td>
+                <td class="text-center m--hide"></td>
+                <td class="wqty"><div class="input-group form-group mb-0 has-success bootstrap-touchspin" style="justify-content: center;"> <span class="input-group-btn input-group-prepend bootstrap-touchspin-injected">
+                    <button class="btn btnMd bootstrap-touchspin-down" type="button">-</button>
+                    </span>
+                    <input type="text" class="form-control form-control-sm text-center qtyforfocuse" name="salesItemVos[0].qty" id="qty0" placeholder="Qty" value="" onclick="qtyNumPad(event,0)" onchange="setAmount(0)" onfocus="this.select();" onkeydown="check(event,this)" data-item-availableqty="-16" data-item-purchaseprice="1785.71" data-fv-field="salesItemVos[0].qty">
+                    <div class="input-group-append">
+                      <button class="btn btnMd bootstrap-touchspin-up bootstrap-touchspin-injected" type="button">+</button>
+                      <button type="button" class="btn btn-vasy ml-1" onclick="fetchWS(0)"> <i class="fa fa-eye" aria-hidden="true"></i> </button>
+                    </div>
+                    <!-- <input type="number" id="quantity" name="quantity" style="max-width:50px;" class="form-control form-control-sm text-center" value="0">
+																		<div class="input-group-append">
+																			<button type="button" class="btn btn-dark">
+																		    	<i class="fa fa-plus" aria-hidden="true"></i>
+																		   	</button>
+																		</div> --> 
+                    <small class="help-block" data-fv-validator="notEmpty" data-fv-for="salesItemVos[0].qty" data-fv-result="VALID" style="display: none;">The Qty is required</small><small class="help-block" data-fv-validator="stringLength" data-fv-for="salesItemVos[0].qty" data-fv-result="VALID" style="display: none;">The Qty must be less than 20 characters long</small></div></td>
+                <td class="text-right"><b data-item-price="" class="">2000.00</b></td>
+                <td class="wdisc"><div class="input-group form-group mb-0 has-success"> <span class="input-group-prepend">
+                    <button type="button" id="btn_percentage0" disabled="disabled" onclick="btnpercentage(0),checkisvalid(0),adjusttopercentage(0),setAmount(0)" class="btn btn-dark btn-percent" style="display: none;"> <i class="fa fa-percent" aria-hidden="true"></i> </button>
+                    <button type="button" disabled="disabled" id="btn_amount0" onclick="btnamount(0),checkisvalid(0),adjusttopercentage(0),setAmount(0)" class="btn btnMd-2 btn-rupee"> <i class="fa fa-inr currency_style" aria-hidden="true"></i></button>
+                    </span>
+                    <input type="text" readonly="readonly" style="max-width:70px;" class="form-control form-control-sm" name="salesItemVos[0].mrpToDiscount" id="mrpToDiscount0" placeholder="Discount" onchange="checkisvalid(0),adjusttopercentage(0),setAmount(0)" onkeydown="check(event,this)" value="0" data-item-temporary-discount="0" data-fv-field="salesItemVos[0].mrpToDiscount">
+                    <small class="help-block" data-fv-validator="notEmpty" data-fv-for="salesItemVos[0].mrpToDiscount" data-fv-result="VALID" style="display: none;">The Discount is required</small><small class="help-block" data-fv-validator="stringLength" data-fv-for="salesItemVos[0].mrpToDiscount" data-fv-result="VALID" style="display: none;">The Discount must be less than 20 characters long</small><small class="help-block" data-fv-validator="regexp" data-fv-for="salesItemVos[0].mrpToDiscount" data-fv-result="VALID" style="display: none;">invalid</small></div></td>
+                <td class="wadisc "><div class="input-group  mrpTodiscountAdditional"> <span class="input-group-prepend">
+                    <button type="button" class="btn btnMd-2" id="btn_percentageAdditional0" disabled="disabled" onclick="btnpercentageAdditional(0)"> <i class="fa fa-percent" aria-hidden="true"></i> </button>
+                    <button type="button" disabled="disabled" id="btn_amountAdditional0" onclick="btnamountAdditional(0)" class="btn btnMd-2 btn-rupee" style="display: none;"> <i class="fa fa-inr currency_style" aria-hidden="true"></i></button>
+                    </span>
+                    <input type="text" name="salesItemVos[0].mrpTodiscountAdditional" id="mrpTodiscountAdditional0" style="max-width:60px;" onchange="adjusttopercentageadditional(0),setAmount(0)" readonly="readonly" onkeydown="check(event,this)" class="form-control form-control-sm" value="0">
+                    <button type="button" id="show_offers_modal_btn0" onclick="getCouponDetails(0)" class="btn btn-info btn-rupee" style="display: none;"> <i class="fa fa-info-circle" aria-hidden="true"></i> </button>
+                  </div></td>
+                <td class="text-right"><b data-item-landing-amount="">2000.00</b></td>
+                <td class="text-right"><b data-item-amount="">2000.00</b></td>
+                <td class="wdel"><a href="#" data-item-remove="" class="btn" title="Remove"> <i class="fa fa-times" style="color:#f4516c"></i> </a>
+                  <input type="hidden" name="salesItemVos[0].price" id="price0" value="1785.71">
+                  <input type="hidden" name="salesItemVos[0].productVarientsVo.productVarientId" id="productVarientId0" value="3789158">
+                  <input type="hidden" name="salesItemVos[0].itemCode" id="itemCode0" value="suit">
+                  <input type="hidden" data-item-mrp-uvv="" name="salesItemVos[0].mrp" id="mrp0" value="2000.00">
+                  <input type="hidden" data-item-net-amount="" name="salesItemVos[0].netAmount" id="netAmount0" value="2000.00">
+                  <input type="hidden" name="salesItemVos[0].productDescription" id="productDescription0" value="">
+                  <input type="hidden" name="salesItemVos[0].taxAmount" id="taxAmount0" value="214.28999999999996">
+                  <input type="hidden" name="salesItemVos[0].taxRate" id="taxRate0" value="12">
+                  <input type="hidden" name="salesItemVos[0].cessAmount" id="cessAmount0" value="0">
+                  <input type="hidden" name="salesItemVos[0].cessRate" id="cessRate0" value="0">
+                  <input type="hidden" name="salesItemVos[0].taxVo.taxId" id="taxId0" value="4906">
+                  <input type="hidden" name="salesItemVos[0].discount" id="discount0" data-total-discount-amount="0" value="0">
+                  <input type="hidden" name="salesItemVos[0].discountbeforeadditional" id="discountbeforeadditional0" value="">
+                  <input type="hidden" name="salesItemVos[0].discountAdditional" id="discountAdditional0" discountadditional-amount="0" value="0">
+                  <input type="hidden" name="salesItemVos[0].discountType" id="discountType0" value="percentage">
+                  <input type="hidden" name="salesItemVos[0].discountTypeAdditional" id="discountTypeAdditional0" value="percentage">
+                  <input type="hidden" name="salesItemVos[0].salesItemId" id="salesItemId0" value="0">
+                  <input type="hidden" id="taxIncudedId0" value="1">
+                  <input type="hidden" id="cessavailable0" value="0">
+                  <input type="hidden" id="orignalPrice0" value="2000">
+                  <input type="hidden" id="categoryId0" value="30120">
+                  <input type="hidden" id="brandId0" value="18651">
+                  <input type="hidden" id="hsnCodeitem0" value="6257">
+                  <input type="hidden" id="parentcategoryId0" value="">
+                  <input type="hidden" id="parentbrandId0" value="">
+                  <input type="hidden" id="printforhold0" value="0">
+                  <input type="hidden" id="decimalplaceId0" value="3">
+                  <input type="hidden" id="productType0" value="Finished">
+                  <input type="hidden" id="discountApplyedCoupon0" value="0">
+                  <input type="hidden" name="salesItemVos[0].salesmanId" id="salesman0" value="0">
+                  <input type="hidden" name="salesItemVos[0].mrpToDiscountType" id="mrpToDiscountType0" value="amount">
+                  <input type="hidden" name="salesItemVos[0].mrpToDiscountTypeAdditional" id="mrpToDiscountTypeAdditional0" value="percentage">
+                  <input type="hidden" name="salesItemVos[0].batchNo" id="batchNo0" value="B37891582000">
+                  <input type="hidden" name="salesItemVos[0].batchId" id="batchId0" value="5371082">
+                  <input type="hidden" name="salesItemVos[0].discountId" id="discountId0" value="0">
+                  <input type="hidden" name="salesItemVos[0].isbatchmerge" id="isbatchmerge0" value="0">
+                  <input type="hidden" name="salesItemVos[0].oldData" id="oldData0" value="0">
+                  <input type="hidden" name="salesItemVos[0].sellingPrice" id="sellingPrice0" value="2000">
+                  <input type="hidden" name="salesItemVos[0].landingCost" id="landingCost0" value="2000">
+                  <input type="hidden" name="salesItemVos[0].profit" id="profit0" value="0.00">
+                  <input type="hidden" id="membershipmargineType0" value="">
+                  <input type="hidden" id="membershipmargine0" value="0">
+                  <input type="hidden" id="membershipdiscount0" value="0">
+                  <input type="hidden" name="salesItemVos[0].orderBy" id="orderBy0" value="0">
+                  <table class="m--hide" id="product_table_for_raw0">
+                    <tbody data-raw-list="">
+                    </tbody>
+                  </table>
+                  <input type="hidden" name="salesItemVos[0].jpmProductSkuId" id="jpmProductSkuId0" value="0">
+                  <input type="hidden" name="salesItemVos[0].jpmProductId" id="jpmProductId0" value="0">
+                  
+                  <!-- JPM coupon table  --> 
+                  <span data-jpmcoupon-table="" id="jpmcouponSpan0">
+                  <table class="table table-sm table-bordered table-striped table-hover debit_note_table_class mb-0 m--hide" id="jpm_coupon_table0">
+                    <tbody data-jpmcoupon-list="">
+                    </tbody>
+                  </table>
+                  </span> 
+                  <!-- JPM coupon table  --></td>
+              </tr>
+              <tr data-sales-item="template" class="hide">
+                <td class="wsrno text-center" data-item-index="">1</td>
+                <td class="witemcode text-center "><b data-item-itemcode=""></b></td>
+                <td class="wproductname text-left"><b data-item-name=""></b></td>
+                <td class="wunit text-center m--hide" data-item-varientname="">-</td>
+                <td class="wqty"><div class="input-group form-group mb-0" style="justify-content: center;">
+                    <input type="text" class="form-control form-control-sm text-center qtyforfocuse " name="salesItemVos[{index}].qty" id="qty{index}" placeholder="Qty" value="" onclick="qtyNumPad(event,{index})" onchange="setAmount({index})" onfocus="this.select();" onkeydown="check(event,this)" data-item-availableqty="" data-item-purchaseprice="" data-item-varientname="">
+                    <div class="input-group-append">
+                      <button type="button" class="btn btn-vasy ml-1" onclick="fetchWS({index})"> <i class="fa fa-eye" aria-hidden="true"></i> </button>
+                    </div>
+                  </div></td>
+                <td class="wmrp text-right"><b data-item-price="" class="">50.00</b></td>
+                <td class="wdisc"><div class="input-group form-group mb-0"> <span class="input-group-prepend">
+                    <button type="button" id="btn_percentage{index}" disabled="disabled" onclick="btnpercentage({index}),checkisvalid({index}),adjusttopercentage({index}),setAmount({index})" class="btn btn-dark btn-percent"> <i class="fa fa-percent" aria-hidden="true"></i> </button>
+                    <button type="button" disabled="disabled" id="btn_amount{index}" onclick="btnamount({index}),checkisvalid({index}),adjusttopercentage({index}),setAmount({index})" class="btn btn-dark btn-rupee"> <i class="fa fa-inr currency_style" aria-hidden="true"></i></button>
+                    </span>
+                    <input type="text" readonly="readonly" style="max-width:70px;" class="form-control form-control-sm" name="salesItemVos[{index}].mrpToDiscount" id="mrpToDiscount{index}" placeholder="Discount" onchange="checkisvalid({index}),adjusttopercentage({index}),setAmount({index})" onkeydown="check(event,this)" value="0" data-item-temporary-discount="0">
+                  </div></td>
+                <td class="wadisc "><div class="input-group  mrpTodiscountAdditional"> <span class="input-group-prepend">
+                    <button type="button" class="btn btn-dark" id="btn_percentageAdditional{index}" disabled="disabled" onclick="btnpercentageAdditional({index})"> <i class="fa fa-percent" aria-hidden="true"></i> </button>
+                    <button type="button" disabled="disabled" id="btn_amountAdditional{index}" onclick="btnamountAdditional({index})" class="btn btn-dark btn-rupee"> <i class="fa fa-inr currency_style" aria-hidden="true"></i></button>
+                    </span>
+                    <input type="text" name="salesItemVos[{index}].mrpTodiscountAdditional" id="mrpTodiscountAdditional{index}" style="max-width:60px;" onchange="adjusttopercentageadditional({index}),setAmount({index})" readonly="readonly" onkeydown="check(event,this)" class="form-control form-control-sm" value="0">
+                    <button type="button" id="show_offers_modal_btn{index}" onclick="getCouponDetails({index})" class="btn btn-info btn-rupee" style="display: none;"> <i class="fa fa-info-circle" aria-hidden="true"></i> </button>
+                  </div></td>
+                <td class="wnetamt text-right"><b data-item-landing-amount="">0</b></td>
+                <td class="wnetamt text-right"><b data-item-amount="">50.00</b></td>
+                <td class="wdel"><a href="#" data-item-remove="" class="btn" title="Remove"> <i class="fa fa-times" style="color:#f4516c"></i> </a>
+                  <input type="hidden" name="salesItemVos[{index}].price" id="price{index}" value="">
+                  <input type="hidden" name="salesItemVos[{index}].productVarientsVo.productVarientId" id="productVarientId{index}" value="">
+                  <input type="hidden" name="salesItemVos[{index}].itemCode" id="itemCode{index}" value="">
+                  <input type="hidden" data-item-mrp-uvv="" name="salesItemVos[{index}].mrp" id="mrp{index}" value="">
+                  <input type="hidden" data-item-net-amount="" name="salesItemVos[{index}].netAmount" id="netAmount{index}" value="">
+                  <input type="hidden" name="salesItemVos[{index}].productDescription" id="productDescription{index}" value="">
+                  <input type="hidden" name="salesItemVos[{index}].taxAmount" id="taxAmount{index}" value="">
+                  <input type="hidden" name="salesItemVos[{index}].taxRate" id="taxRate{index}" value="">
+                  <input type="hidden" name="salesItemVos[{index}].cessAmount" id="cessAmount{index}" value="">
+                  <input type="hidden" name="salesItemVos[{index}].cessRate" id="cessRate{index}" value="">
+                  <input type="hidden" name="salesItemVos[{index}].taxVo.taxId" id="taxId{index}" value="">
+                  <input type="hidden" name="salesItemVos[{index}].discount" id="discount{index}" data-total-discount-amount="" value="">
+                  <input type="hidden" name="salesItemVos[{index}].discountbeforeadditional" id="discountbeforeadditional{index}" value="">
+                  <input type="hidden" name="salesItemVos[{index}].discountAdditional" id="discountAdditional{index}" discountadditional-amount="0" value="0">
+                  <input type="hidden" name="salesItemVos[{index}].discountType" id="discountType{index}" value="">
+                  <input type="hidden" name="salesItemVos[{index}].discountTypeAdditional" id="discountTypeAdditional{index}" value="percentage">
+                  <input type="hidden" name="salesItemVos[{index}].salesItemId" id="salesItemId{index}" value="0">
+                  <input type="hidden" id="taxIncudedId{index}" value="">
+                  <input type="hidden" id="cessavailable{index}" value="">
+                  <input type="hidden" id="orignalPrice{index}" value="">
+                  <input type="hidden" id="categoryId{index}" value="">
+                  <input type="hidden" id="brandId{index}" value="">
+                  <input type="hidden" id="hsnCodeitem{index}" value="">
+                  <input type="hidden" id="parentcategoryId{index}" value="">
+                  <input type="hidden" id="parentbrandId{index}" value="">
+                  <input type="hidden" id="printforhold{index}" value="0">
+                  <input type="hidden" id="decimalplaceId{index}" value="">
+                  <input type="hidden" id="productType{index}" value="">
+                  <input type="hidden" id="discountApplyedCoupon{index}" value="0">
+                  <input type="hidden" name="salesItemVos[{index}].salesmanId" id="salesman{index}" value="0">
+                  <input type="hidden" name="salesItemVos[{index}].mrpToDiscountType" id="mrpToDiscountType{index}" value="">
+                  <input type="hidden" name="salesItemVos[{index}].mrpToDiscountTypeAdditional" id="mrpToDiscountTypeAdditional{index}" value="">
+                  <input type="hidden" name="salesItemVos[{index}].batchNo" id="batchNo{index}" value="">
+                  <input type="hidden" name="salesItemVos[{index}].batchId" id="batchId{index}" value="0">
+                  <input type="hidden" name="salesItemVos[{index}].discountId" id="discountId{index}" value="0">
+                  <input type="hidden" name="salesItemVos[{index}].isbatchmerge" id="isbatchmerge{index}" value="0">
+                  <input type="hidden" name="salesItemVos[{index}].oldData" id="oldData{index}" value="0">
+                  <input type="hidden" name="salesItemVos[{index}].sellingPrice" id="sellingPrice{index}" value="0">
+                  <input type="hidden" name="salesItemVos[{index}].landingCost" id="landingCost{index}" value="0">
+                  <input type="hidden" name="salesItemVos[{index}].profit" id="profit{index}" value="0">
+                  <input type="hidden" id="membershipmargineType{index}" value="amount">
+                  <input type="hidden" id="membershipmargine{index}" value="0">
+                  <input type="hidden" id="membershipdiscount{index}" value="0">
+                  <input type="hidden" name="salesItemVos[{index}].orderBy" id="orderBy{index}" value="0">
+                  <table class="m--hide" id="product_table_for_raw{index}">
+                    <tbody data-raw-list="">
+                    </tbody>
+                  </table>
+                  <input type="hidden" name="salesItemVos[{index}].jpmProductSkuId" id="jpmProductSkuId{index}" value="0">
+                  <input type="hidden" name="salesItemVos[{index}].jpmProductId" id="jpmProductId{index}" value="0">
+                  
+                  <!-- JPM coupon table  --> 
+                  <span data-jpmcoupon-table="" id="jpmcouponSpan{index}">
+                  <table class="table table-sm table-bordered table-striped table-hover debit_note_table_class mb-0 m--hide" id="jpm_coupon_table{index}">
+                    <tbody data-jpmcoupon-list="">
+                    </tbody>
+                  </table>
+                  </span> 
+                  <!-- JPM coupon table  --></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="pos-left-bottom-fixed">
+        <div class="row">
+          <div class="col-12 mb-0 form-group" id="lastfutterdetails">
+            <input type="text" class="form-control form-control-sm" name="note" id="reamrk" placeholder="Remarks" value="" autocomplete="off" data-fv-field="note">
+            <small class="help-block" data-fv-validator="stringLength" data-fv-for="note" data-fv-result="NOT_VALIDATED" style="display: none;">The Remark must be less than 200 characters long</small></div>
+          <div class="col-12 mt-1 mb-0 text-center" id="lastfutterdetails">
+            <div class="invoice-summary bg-white pt-1 pb-1 col-12">
+              <div class="row">
+                <div class="col border-right ">
+                  <h6 id="total_quantity">0.000</h6>
+                  <span style="font-weight:700;">Quantity</span> </div>
+                <div class="col border-right ">
+                  <h6 id="total_mrp">0</h6>
+                  <span style="font-weight:700;">MRP</span> </div>
+                <div class="col border-right ">
+                  <h6 id="tax_amount">0.00</h6>
+                  <span style="font-weight:700;">Tax Amount</span> </div>
+                <div class="col border-right ">
+                  <h6 id="additional_charge_sub_total">0</h6>
+                  <a href="javascript:void(0)" style="color:#000;" class="add-charge-modals" id="additional_charge" title="Add Additional Charge"><span style="font-weight: 700;">Add.Charges</span>&nbsp;<i class="fa fa-plus"></i></a> </div>
+                <div class="col border-right">
+                  <input type="hidden" id="billDiscount" name="billDiscount" readonly="readonly" value="0" placeholder="Bill Discount" style="width: 100px;">
+                  <input type="hidden" id="billDiscounttype" name="billDiscounttype" readonly="readonly" value="amount">
+                  <input type="hidden" id="billDiscountapplied" name="billDiscountapplied" value="0">
+                  <h6 id="total_discount_amount">0.00</h6>
+                  <span style="font-weight: 700;">Discount</span> </div>
+                <div class="col border-right ">
+                  <div class="input-group"> <span class="input-group-prepend">
+                    <button type="button" id="btn_percentage_flat_discount" onclick="btnPercentageFlatDiscount()" class="btn btn-dark btn-percent"> <i class="fa fa-percent" aria-hidden="true"></i> </button>
+                    <button type="button" id="btn_amount_flat_discount" onclick="btnAmountFlatDiscount()" class="btn btn-dark btn-rupee" style="display: none;"> <i class="fa fa-inr currency_style" aria-hidden="true"></i></button>
+                    </span>
+                    <input type="text" id="flat_discount" name="flatDiscount" onchange="checkFlat(),setAllTotal()" style="max-width:70px;" class="form-control form-control-sm" value="0" placeholder="Percentage">
+                    <input type="hidden" id="flat_discount_type" name="flatDiscountType" onchange="setAllTotal()" value="percentage">
+                    <input type="hidden" id="flat_discount_in_amount" name="flatDiscountInAmount" value="0">
+                    <input type="hidden" id="additionalCharge_total_amount" name="additionalChargeTotalAmount" value="0">
+                    <input type="checkbox" class="" id="rediscount" name="rediscount" value="0" data-toggle="m-tooltip" title="" style="margin-top:12px;margin-left: 8px;width: 14px;height: 16px " data-original-title="Remember Me Discount">
+                  </div>
+                  <span style="font-weight:700;margin-top:6px;display:block;">Flat Discount</span> </div>
+                <div class="col border-right "> 
+                  <!-- <h6 id="round_off">0</h6> -->
+                  <input type="text" class="form-control form-control-sm text-right" onkeydown="checkforroundoff(event,this)" onchange="setRoundoff()" name="round_off" id="round_off" placeholder="Roundoff" value="" style="margin-bottom:.5rem;" data-fv-field="round_off">
+                  <span style="font-weight:700;">Round OFF</span> 
+                  <!-- <div class="d-none" id="roundoff_section">
+	                                          						<div class="form-group">
+	                                             						<div class="col-lg-12 col-md-12 col-sm-12 p-0">
+	                                                						<input type="text" class="form-control text-right" name="roundoff" id="" placeholder="Roundoff" value="" autocomplete="off">
+	                                             						</div>
+	                                          						</div>
+	                                          						<div class="col-md-12">
+	                                             						<div class="row">
+	                                                						<div class="col-lg-7 col-md-7 col-sm-7 p-0">
+	                                                   							<button type="button" class="btn btn-light" data-popover-close="">Cancel</button>
+	                                                						</div>
+	                                                						<div class="col-lg-5 col-md-5 col-sm-5 p-0">
+	                                                   							<button type="button" class="btn btn-dark float-right" onclick="setRoundoff()">Set</button>
+	                                                						</div>
+	                                             						</div>
+	                                          						</div>
+	                                       						</div> --> 
+                </div>
+                <div class="col total"> <span class="m--font-boldest2 m--regular-font-size-lg2 m--hide" id="credit_note_net_amount_show"> (<span class="text-muted" data-skin="dark" data-toggle="m-tooltip" data-placement="top" title="" id="creditnote_net_Amount" data-original-title="Net Amount"></span> <span>-</span> <span class="text-danger" data-skin="dark" data-toggle="m-tooltip" data-placement="top" title="" id="creditnote_applier_amount" data-original-title="Credit Applied"></span>) </span>
+                  <h4 style="font-size:30px;color:#00a4e5;" class="mb-0 font-weight-bold" id="net_amount">0</h4>
+                  <span style="font-size:15px;font-weight:700;color:#00a4e5;">Amount</span> </div>
+                <div class="clearfix"></div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-12">
+            <div class="footer-button">
+                <div class="btnRow-1">
+                  <ul class="row">
+                    <li class="col"> <a href="javascript:void(0)" title="Hold Bill" onclick="openholdbill()" class="btn"> <i class="fa fa-pause" aria-hidden="true"></i> Hold Bill </a> </li>
+                    <li class="col"> <a href="javascript:void(0)" title="Tables" onclick="openCommonList()" class="btn"> <i class="fa fa-list" aria-hidden="true"></i> Payments </a> </li>
+                    <li class="col"> <a href="javascript:void(0)" title="Reedem Loyalty" id="reedemLoyalty" class="btn"> <i class="fa fa-gift" aria-hidden="true"></i> Reedem Loyalty </a> </li>
+                    <li class="col"> <a href="javascript:void(0)" id="expense_modal" title="Add payment" class="btn"> <i class="fa fa-money" aria-hidden="true"></i> Add Payment </a> </li>
+                    <li class="col"> <a href="javascript:void(0)" title="Credit Notes" id="creditnote_view" class="btn"> <i class="fa fa-sticky-note" aria-hidden="true"></i> Credit Notes </a> </li>
+                    <li class="col"> <a href="javascript:void(0)" title="Orders" id="pos-list" class="btn"> <i class="fa fa-list" aria-hidden="true"></i> Orders </a> </li>
+                    <!-- <li class="">
+                                                     <a href="javascript:void(0)" title="settings" id="pos-setting-list" onclick="opensetting()">
+                                                        <i class="fa fa-cog" aria-hidden="true"></i> Setting
+                                                     </a>
+                                                </li> -->
+                  </ul>
+                </div>
+
+
+                <!-- <div class="row btnRow-1" id="salesbtndiv">
+                  <button type="button" class="col btn" onclick="openmultipay()"><i class="fa fa-columns" aria-hidden="true"></i> Multiple Pay(F12)</button>
+                  <button type="button" class="col btn" id="applycredit" onclick="applyCreditModel()"><i class="fa fa-money" aria-hidden="true"></i> Redeem Credit</button>
+                  <button type="button" class="col btn" id="holdbill" onclick="holdbillBill()"><i class="fa fa-pause" aria-hidden="true"></i> Hold (F6)</button>
+                  <button type="button" class="col btn" onclick="setUPIModal()"><i class="fa fa-caret-right" aria-hidden="true"></i><i class="fa fa-caret-right" aria-hidden="true"></i> UPI (F5)</button>
+                  <button type="button" class="col btn" id="cardbtn" onclick="setCartModalNew()"> <i class="fa fa-credit-card" aria-hidden="true"></i> Card (F3) </button>
+                  <button type="button" class="col btn" id="cashbtn" onclick="saveCash()"> <i class="fa fa-inr currency_style" aria-hidden="true"></i> Cash (F4) </button>
+                  <button type="button" class="col btn" id="applyecoupon" onclick="applyeCouponModel()"> <i class="fa fa-gift" aria-hidden="true"></i> Apply Coupon </button>
+                  <button type="button" class="col btn" id="payLatterBillId" onclick="payLatterBill()"> <i class="fa fa-calendar" aria-hidden="true"></i> Pay Later (F11) </button>
+                  <button type="button" class="col btn" id="holdbillandprint" onclick="holdAndPrint()"> <i class="fa fa-pause" aria-hidden="true"></i> Hold &amp; Print(F7) </button>
+                  <button type="button" class="col btn" onclick="upiAndPrint()"> <i class="fa fa-caret-right" aria-hidden="true"></i><i class="fa fa-caret-right" aria-hidden="true"></i> UPI &amp; Print (F10) </button>
+                  <button type="button" class="col btn" id="cardbtn" onclick="setCartAndPrintNew()"> <i class="fa fa-credit-card" aria-hidden="true"></i> Card &amp; Print (F9) </button>
+                  <button type="button" class="col btn" id="cashbtn" onclick="cashAndPrint()"> <i class="fa fa-inr currency_style" aria-hidden="true"></i> Cash &amp; Print (F8) </button>
+                </div> -->
+                <!-- <div class="row m--hide btnRow-2" id="salesreturnbtndiv">
+                  <div class="col-12">
+                    <div class="row">
+                      <button type="button" class="col btn btn-dark col" id="returncashbtn" onclick="saveCashReturn()"> <i class="fa fa-inr currency_style" aria-hidden="true"></i>Cash Return </button>
+                      <button type="button" class="col btn btn-dark col" id="returnbtn" onclick="saveSalesReturn()"> <i class="fa fa-gift" aria-hidden="true"></i> Sales Return </button>
+                      <button type="button" class="col btn btn-dark col" id="returnEditbtn" onclick="EditCall()"> <i class="fa fa-edit" aria-hidden="true"></i> Edit </button>
+                    </div>
+                  </div>
+                </div> -->
+                <!-- <div class="row m--hide btnRow-3" id="kotbtndiv">
+                  <div class="col-12">
+                    <div class="row">
+                      <button type="button" class="col btn btn-dark col" id="kotsubmitbtn" onclick="saveOrder()"> <i class="fa fa-inr currency_style" aria-hidden="true"></i>Submit </button>
+                      <button type="button" class="col btn btn-dark col" id="kotcompletebtn" onclick="saveKotComplete()"> <i class="fa fa-gift" aria-hidden="true"></i> Complete </button>
+                    </div>
+                  </div>
+                </div> -->
+            </div>
+            <div class="cusHltts">
+              <h6>Customer Details</h6>
+              <p id="customer_last_transaction_date_div"><span class="font-weight-bold"> Last Visited:</span> <span id="customer_last_transaction_date">-</span></p>
+              <p><span class="font-weight-bold"> Last Bill Amount:</span> <span id="customer_last_transaction_amount">-</span></p>
+              <p><span class="font-weight-bold"> Most Purchased Item:</span> <span id="customer_last_transaction_prdouct">-</span></p>
+              <p><span class="font-weight-bold"> Closing: <span style="font-weight:normal;" id="customer_closing">-</span></span></p>
+              <p><span class="font-weight-bold"> Total Purchase:</span> <span id="customer_total_purchase">1454</span></p>
+              <p id="loyaltyPointsdiv"><span class="font-weight-bold">Loyalty Points:</span> <span id="customer_loyalty">-</span></p>
+              <p><span class="font-weight-bold"> MemberShip:</span> <span id="membership_Date">-</span><a class="btn btn-sm btn-dark m--hide" href="javascript:void(0)" id="membership_remove"><i class="fa fa-minus" aria-hidden="true"></i></a></p>
+              <p class="m--hide"> <span class="font-weight-bold"> MemberShip Discount: <a class="btn btn-sm btn-dark m--hide" href="javascript:void(0)" id="membership_asign"><i class="fa fa-plus" aria-hidden="true"></i></a> </span> <span id="membership_Discount">0.00</span> </p>
+              <p> <span class="font-weight-bold" id="coupon_div">Coupon:</span> <a class="btn btn-sm btn-dark m--hide" href="javascript:void(0)" id="coupon_remove"><i class="fa fa-minus" aria-hidden="true"></i></a> <a class="btn btn-sm btn-dark" href="javascript:void(0)" id="coupon_asign"><i class="fa fa-plus" aria-hidden="true"></i></a> </p>
+            </div>
+            <div class="cusHltts">
+              <p><span class="font-weight-bold">Last Bill No.:</span> <span id="bill_last_no">-</span></p>
+              <p><span class="font-weight-bold">Last Bill Amount:</span> <span id="billlast_amount">-</span></p>
+              <p>
+                <button type="button" class="col btn btn-sm btnMd" onclick="printlastBill()"> <i class="fa fa-print" aria-hidden="true"></i> Last Bill Print </button>
+              </p>
+            </div>
+
+            <div class="clearfix"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-3 pos-right pl-0">
+    <div class="card">
+      <div class="row">
+        <div class="right-sidebar mt-2 mb-2">
+          <div class="right-top">
+            <div class="sidebar-widget text-center">
+              <ul>
+                <li><button type="button" class="" onclick="openmultipay()"><i class="fa fa-columns" aria-hidden="true"></i> Multiple Pay(F12)</button></li>
+                <li><button type="button" class="" id="applycredit" onclick="applyCreditModel()"><i class="fa fa-money" aria-hidden="true"></i> Redeem Credit</button></li>
+                <li><button type="button" class="" id="holdbill" onclick="holdbillBill()"><i class="fa fa-pause" aria-hidden="true"></i> Hold (F6)</button></li>
+                <li><button type="button" class="" onclick="setUPIModal()">UPI (F5)</button></li>
+                <li><button type="button" class="" id="cardbtn" onclick="setCartModalNew()"><i class="fa fa-credit-card" aria-hidden="true"></i> Card (F3) </button></li>
+                <li><button type="button" class="" id="cashbtn" onclick="saveCash()"><i class="fa fa-inr currency_style" aria-hidden="true"></i> Cash (F4) </button></li>
+                <li><button type="button" class="" id="applyecoupon" onclick="applyeCouponModel()"><i class="fa fa-gift" aria-hidden="true"></i> Apply Coupon </button></li>
+                <li><button type="button" class="" id="payLatterBillId" onclick="payLatterBill()"><i class="fa fa-calendar" aria-hidden="true"></i> Pay Later (F11) </button></li>
+                <li><button type="button" class="" id="holdbillandprint" onclick="holdAndPrint()"><i class="fa fa-pause" aria-hidden="true"></i> Hold &amp; Print(F7) </button></li>
+                <li><button type="button" class="" onclick="upiAndPrint()"><span><i class="fa fa-caret-right" aria-hidden="true"></i><i class="fa fa-caret-right" aria-hidden="true"></i></span> UPI &amp; Print (F10) </button></li>
+                <li><button type="button" class="" id="cardbtn" onclick="setCartAndPrintNew()"><i class="fa fa-credit-card" aria-hidden="true"></i> Card &amp; Print (F9) </button></li>
+                <li><button type="button" class="" id="cashbtn" onclick="cashAndPrint()"><i class="fa fa-inr currency_style" aria-hidden="true"></i> Cash &amp; Print (F8) </button></li>
+              </ul>
+              <div class="clearfix"></div>
+            </div>
+          </div>
+          <div class="clearfix"></div>
+          <!-- <div class="right-bottom text-left">
+            <div class="cusHltts ">
+              <h6>Customer Details</h6>
+              <p id="customer_last_transaction_date_div"><span class="font-weight-bold"> Last Visited:</span> <span id="customer_last_transaction_date">-</span></p>
+              <p><span class="font-weight-bold"> Last Bill Amount:</span> <span id="customer_last_transaction_amount">-</span></p>
+              <p><span class="font-weight-bold"> Most Purchased Item:</span> <span id="customer_last_transaction_prdouct">-</span></p>
+              <p><span class="font-weight-bold"> Closing: <span style="font-weight:normal;" id="customer_closing">-</span></span></p>
+              <p><span class="font-weight-bold"> Total Purchase:</span> <span id="customer_total_purchase">1454</span></p>
+              <p id="loyaltyPointsdiv"><span class="font-weight-bold">Loyalty Points:</span> <span id="customer_loyalty">-</span></p>
+              <p><span class="font-weight-bold"> MemberShip:</span> <span id="membership_Date">-</span><a class="btn btn-sm btn-dark m--hide" href="javascript:void(0)" id="membership_remove"><i class="fa fa-minus" aria-hidden="true"></i></a></p>
+              <p class="m--hide"> <span class="font-weight-bold"> MemberShip Discount: <a class="btn btn-sm btn-dark m--hide" href="javascript:void(0)" id="membership_asign"><i class="fa fa-plus" aria-hidden="true"></i></a> </span> <span id="membership_Discount">0.00</span> </p>
+              <p> <span class="font-weight-bold" id="coupon_div">Coupon:</span> <a class="btn btn-sm btn-dark m--hide" href="javascript:void(0)" id="coupon_remove"><i class="fa fa-minus" aria-hidden="true"></i></a> <a class="btn btn-sm btn-dark" href="javascript:void(0)" id="coupon_asign"><i class="fa fa-plus" aria-hidden="true"></i></a> </p>
+            </div>
+            <div class="cusHltts ">
+              <p><span class="font-weight-bold">Last Bill No.:</span> <span id="bill_last_no">-</span></p>
+              <p><span class="font-weight-bold">Last Bill Amount:</span> <span id="billlast_amount">-</span></p>
+              <p>
+                <button type="button" class="col btn btn-sm btnMd" onclick="printlastBill()"> <i class="fa fa-print" aria-hidden="true"></i> Last Bill Print </button>
+              </p>
+            </div>
+          </div> -->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+@endsection
+
+@section('scripts') 
+<script src="{{ url('assets/admin/js/typeahead.min.js') }}"></script> 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/corejs-typeahead/1.3.1/typeahead.bundle.min.js"></script> 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/corejs-typeahead/1.3.1/bloodhound.min.js"></script> 
+<script src="{{ url('assets/admin/js/product.js') }}"></script> 
+<script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script> 
+<script>
+var substringMatcher = function(strs) {
+  return function findMatches(q, cb) {
+    var matches, substringRegex;
+
+    // an array that will be populated with substring matches
+    matches = [];
+
+    // regex used to determine if a string contains the substring `q`
+    substrRegex = new RegExp(q, 'i');
+
+    // iterate through the pool of strings and for any string that
+    // contains the substring `q`, add it to the `matches` array
+    $.each(strs, function(i, str) {
+      if (substrRegex.test(str)) {
+        matches.push(str);
+      }
+    });
+
+    cb(matches);
+  };
+};
+
+var states = ['Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California',
+  'Colorado', 'Connecticut', 'Delaware', 'Florida', 'Georgia', 'Hawaii',
+  'Idaho', 'Illinois', 'Indiana', 'Iowa', 'Kansas', 'Kentucky', 'Louisiana',
+  'Maine', 'Maryland', 'Massachusetts', 'Michigan', 'Minnesota',
+  'Mississippi', 'Missouri', 'Montana', 'Nebraska', 'Nevada', 'New Hampshire',
+  'New Jersey', 'New Mexico', 'New York', 'North Carolina', 'North Dakota',
+  'Ohio', 'Oklahoma', 'Oregon', 'Pennsylvania', 'Rhode Island',
+  'South Carolina', 'South Dakota', 'Tennessee', 'Texas', 'Utah', 'Vermont',
+  'Virginia', 'Washington', 'West Virginia', 'Wisconsin', 'Wyoming'
+];
+
+$('#scanBarcodeInput .typeahead').typeahead({
+  hint: true,
+  highlight: true,
+  minLength: 1
+},
+{
+  name: 'states',
+  source: substringMatcher(states)
+});
+
+
+
+
+  $(document).ready(function(){
+  $(".toggleBtn").click(function(){
+    $(".toggleArea").slideToggle();
+  });
+});
+</script> 
+@endsection 

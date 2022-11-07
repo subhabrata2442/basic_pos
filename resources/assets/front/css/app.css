@@ -1,0 +1,16 @@
+@import '../../common/css/bootstrap-5.min.css';
+@import '../../common/css/font-awesome-5/all.min.css';
+
+/* @import '../../common/css/font-awesome-6/font-awesome-6.min.css'; */
+
+
+/* @import '../../common/css/select2.min.css'; */
+
+@import "~select2/dist/css/select2.css";
+@import "../../common/css/select2-bootstrap-5-theme.min.css";
+@import "~admin-lte/dist/css/adminlte.min.css";
+@import '../../common/css/build.css';
+@import '../../common/css/toastr.min.css';
+@import "./theme.css";
+@import "../../common/css/style.css";
+@import "./style.css";

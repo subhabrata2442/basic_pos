@@ -1,0 +1,91 @@
+@import "variable";
+
+@mixin input {
+    display: block;
+    width: 100%;
+    padding: 0 0.75rem;
+    font-size: 15px;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    font-family: 'Nunito Sans';
+    font-weight: normal;
+}
+
+@mixin input-4 {
+    display: block;
+    width: 100%;
+    padding: .5rem 0.75rem;
+    font-family: 'Nunito Sans';
+    font-weight: normal;
+    font-size: 15px;
+    line-height: 1.5;
+    background-color: transparent;
+    border: #e1dcdc 1px solid;
+    font-family: 'Nunito Sans';
+}
+
+@mixin btn {
+    border-radius: 30vw;
+    border: none;
+    padding: 10px 30px;
+    font-size: 14px;
+    font-weight: 700;
+    text-align: center;
+    font-family: 'Muli';
+    background: $bg-db;
+    color: $bg-white;
+}
+
+@mixin whiteBdr {
+    border-radius: 30vw;
+    border: none;
+    padding: 9px 30px;
+    font-size: 14px;
+    font-weight: 700;
+    background-color: transparent;
+    border: #fff .5vw solid;
+    text-align: center;
+}
+
+@mixin blueBdr {
+    border-radius: 30vw;
+    border: none;
+    padding: 9px 30px;
+    font-size: 14px;
+    font-family: 'Muli';
+    font-weight: 700;
+    background-color: transparent;
+    border: $bg-db 1px solid;
+    text-align: center;
+}
+
+@mixin whiteBtn {
+    background: $bg-white;
+    color: $bg-db;
+    text-transform: uppercase;
+}
+@mixin whiteshadowBox{
+    border: $borderColor-1 1px solid;
+    border-radius: 10px;
+    background: #fff;
+    padding: 20px;
+    box-shadow: rgba(0,0,0,0.1) 0 10px 15px -5px;
+}
+@mixin placeholder {
+    &::-webkit-input-placeholder {
+        @content
+    }
+
+    &:-moz-placeholder {
+        @content
+    }
+
+    &::-moz-placeholder {
+        @content
+    }
+
+    &:-ms-input-placeholder {
+        @content
+    }
+}

@@ -1,0 +1,16 @@
+@media only screen and (max-width: 1366px){
+    /* Thank You page */
+    .normal-user-dashboard {
+        max-width: 600px;
+        min-height: 350px;
+    }
+    .normal-user-dashboard .thank-you {
+        font-size: 50px;
+    }
+    .normal-user-dashboard .for-stay {
+        font-size: 46px;
+    }
+    .normal-user-dashboard p {
+        font-size: 18px;
+    }
+}

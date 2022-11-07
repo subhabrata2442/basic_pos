@@ -1,0 +1,33 @@
+:root {
+    --mainBg: #fff;
+    --secondaryBg: #f6f5ff;
+    --primaryBg: #17132a;
+    --tartiaryBgColor: #c9571b;
+    --activeColor: #c9571b;
+    --primaryTextColor: #000000;
+    --secondaryTextColor: #fff;
+    --tartiaryTextColor: #ec8b16;
+    --optionalTextColor: #fff;
+    --iconPrimarycolor: #d3681b;
+    --inputBgmain: #17132a;
+    --tableHeadBg: #dfdfdf;
+    --tableBodyOddBg: #f5f5f5;
+    --tableBodyEvenBg: #f5e9e3;
+}
+
+.darkMode {
+    --mainBg: rgb(41, 40, 40);
+    --secondaryBg: #000;
+    --primaryBg: #17132a;
+    --tartiaryBgColor: #c9571b;
+    --activeColor: #c9571b;
+    --primaryTextColor: #fff;
+    --secondaryTextColor: #fff;
+    --tartiaryTextColor: #ec8b16;
+    --optionalTextColor: #000;
+    --iconPrimarycolor: #d3681b;
+    --inputBgmain: #17132a;
+    --tableHeadBg: rgb(0, 0, 0);
+    --tableBodyOddBg: #000;
+    --tableBodyEvenBg: #000;
+}

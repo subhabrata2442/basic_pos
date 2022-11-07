@@ -1,0 +1,34 @@
+header{
+	padding: .5vw 0;
+  &.innerHeader{
+    padding: .5vw 0;
+    position: relative;
+    z-index: 1;
+    background: #203966;
+  }
+	.logo {
+	  padding: 0 15px;
+	  font-size: 2vw;
+	  font-weight: 800;
+	  color: $bg-white; 
+	  text-align: center;
+    small{
+      font-size: 1.4vw;
+      font-weight: 400;
+      margin-left: 15px;
+    }
+	}
+  .logOut {
+    a{
+      color: #fff;
+      font-size: 1.5vw;
+      font-weight: 600;
+      text-transform: uppercase;
+    i{
+      margin-right: 7px;
+    }
+    }
+  }
+  }
+
+

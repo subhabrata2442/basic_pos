@@ -1,0 +1,48 @@
+footer{
+    .footerTop{
+        padding: 2rem 0 1rem;
+        .footerBox{
+            ul{
+                li{
+                    &:not(:last-child){
+                        margin-bottom: 0.75rem;
+                    }
+                    a{
+                        color: $bg-3;
+                        font-size: 1.125rem;
+                        font-family: 'Proxima Nova Rg';
+                        &:hover{
+                            color: $bg-1;
+                        }
+                    }
+                }
+            }
+            
+        }
+        .footerBoxLogo{
+            max-width: 286px;
+            img {
+                max-width: 270px;
+                width: 100%;
+                margin-bottom: .7rem;
+              }
+            ul{
+                margin-top: 15px;
+                li{
+                    &:not(:last-child){
+                        margin-right: 0.85rem;
+                    }
+                    a{
+                        color: $bg-3;
+                        font-size: 1.6rem;
+                    }
+                }
+            }
+        }
+    }
+    .footerBtm{
+        border-top: #ddd 2px solid;
+        padding: 1.5rem 0;
+    }
+    
+}

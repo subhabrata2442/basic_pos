@@ -1,0 +1,829 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="../fonts/stylesheet.css" media="all">
+    <link rel="stylesheet" href="../css/bootstrap.css" media="all">
+    <link rel="stylesheet" href="../css/animate.min.css">
+    <link rel="stylesheet" href="../css/owl.carousel.min.css">
+    <link rel="stylesheet" href="../css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="../css/build.css">
+    <link rel="stylesheet" href="../css/style.css" media="all">
+</head>
+<body>
+    <header class="innerHeader">
+        <div class="container-fluid p-h-40">
+            <div class="row justify-content-between align-items-center">
+                <div class="col-auto logo">
+                    Bazimath Drinks PVT LTD. <small>New Town branch</small>
+                </div>
+                <div class="col-auto logOut">
+                    <a href="#"><i class="fas fa-lock"></i>Logout</a>
+                </div>
+            </div>
+        </div>
+    </header>
+    <section class="d-flex perches">
+        <aside class="perchesLeft">
+            <div class="sidebar">
+                <ul>
+                    <li><a href="#"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
+                    <li class="menu-item"><a href="#"><i class="fas fa-user-alt"></i> Contacts <i class="fa fa-caret-down caretDown cdRight"></i></a>
+                        <ul class="sub-menu">
+                            <li><a href="#">Suppliers</a></li>
+                            <li><a href="#">Customers</a></li>
+                            <li><a href="#">Transport</a></li>
+                            <li><a href="#">Vendors</a></li>
+                            <li><a href="#">Employee</a></li>
+                        </ul>
+                    </li>
+                    <li class="menu-item"><a href="#"><i class="fas fa-cubes"></i> Inventory <i class="fas fa-caret-down caretDown cdRight"></i></a>
+                        <ul class="sub-menu">
+                            <li><a href="#">Product</a></li>
+                            <li><a href="#">Stock</a></li>
+                            <li><a href="#">Stock Transfer Request</a></li>
+                            <li><a href="#">Bill Of Materials</a></li>
+                            <li><a href="#">Recipe</a></li>
+                            <li><a href="#">Material Consumption</a></li>
+                            <li><a href="#">Stock  Verification</a></li>
+                            <li><a href="#">Category / Brand</a></li>
+                            <li><a href="#">Unit Of Measurement</a></li>
+                            <li><a href="#">Tax</a></li>
+                            <li><a href="#">Stock Transfer</a></li>
+                            <li><a href="#">Department</a></li>
+                        </ul>
+                    </li>
+                    <li class="menu-item"><a href="#"><i class="fas fa-gift"></i> Coupons & Membership (BETA) <i class="fas fa-caret-down caretDown cdRight"></i></a>
+                        <ul class="sub-menu">
+                            <li><a href="#">Discount</a></li>
+                        </ul>
+                    </li>
+                    <li class="menu-item"><a href="#" class="active"><i class="fas fa-shopping-bag"></i> Purchase <i class="fas fa-caret-down caretDown cdRight"></i></a>
+                        <ul class="sub-menu" style="display:block;">
+                            <li><a href="#" class="active">Purchase Order</a></li>
+                            <li><a href="#">Material Inward</a></li>
+                            <li><a href="#">Supplier Bill</a></li>
+                            <li><a href="#">Debit Note</a></li>
+                        </ul>
+                    </li>
+                    <li class="menu-item"><a href="#"><i class="fas fa-shopping-cart"></i> Sales <i class="fas fa-caret-down caretDown cdRight"></i></a>
+                        <ul class="sub-menu">
+                            <li><a href="#">Estimate</a></li>
+                            <li><a href="#">Sales Order</a></li>
+                            <li><a href="#">Invoice</a></li>
+                            <li><a href="#">Delivery Challan</a></li>
+                            <li><a href="#">Credit Note</a></li>
+                            <li><a href="#">OrderManagement</a></li>
+                        </ul>
+                    </li>
+                    <li class="menu-item"><a href="#"><i class="fas fa-building"></i> Bank / Cash <i class="fas fa-caret-down caretDown cdRight"></i></a>
+                        <ul class="sub-menu">
+                            <li><a href="#">Bank</a></li>
+                            <li><a href="#">Bank Transaction</a></li>
+                            <li><a href="#">Payment</a></li>
+                            <li><a href="#">Receipt</a></li>
+                            <li><a href="#">Expense</a></li>
+                            <li><a href="#">Owner Cash Flow</a></li>
+                            <li><a href="#">Manager Cash Flow</a></li>
+                        </ul>
+                    </li>
+                    <li class="menu-item"><a href="#"><i class="fas fa-fax"></i> POS <i class="fas fa-caret-down caretDown cdRight"></i></a>
+                        <ul class="sub-menu">
+                            <li><a href="#">New</a></li>
+                            <li><a href="#">In Store Order List</a></li>
+                            <li><a href="#">Online Order List</a></li>
+                            <li><a href="#">Credit Note</a></li>
+                            <li><a href="#">Sales Register</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#"><i class="fas fa-sitemap"></i> Branch</a></li>
+                    <li class="menu-item"><a href="#"><i class="fas fa-calculator"></i> Accounting <i class="fas fa-caret-down caretDown cdRight"></i></a>
+                        <ul class="sub-menu">
+                            <li><a href="#">Account</a></li>
+                            <li><a href="#">Debit Note</a></li>
+                            <li><a href="#">Credit Note</a></li>
+                            <li><a href="#">Journal Voucher</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#"><i class="fas fa-chart-line"></i> Report</a></li>
+                    <li><a href="#"><i class="fas fa-chart-bar"></i> Report (BETA)</a></li>
+                    <li class="menu-item"><a href="#"><i class="fas fa-file"></i> Utilities <i class="fas fa-caret-down caretDown cdRight"></i></a>
+                        <ul class="sub-menu">
+                            <li><a href="#">Documents</a></li>
+                            <li><a href="#">Barcode Utility</a></li>
+                        </ul>
+                    </li>
+                    <li class="menu-item"><a href="#"><i class="fas fa-cogs"></i> Settings <i class="fas fa-caret-down caretDown cdRight"></i></a>
+                        <ul class="sub-menu">
+                            <li><a href="#">Purchase Terms and conditions</a></li>
+                            <li><a href="#">Sales Terms and conditions</a></li>
+
+                            <li><a href="#">Locality Master</a></li>
+                            <li><a href="#">User Role</a></li>
+                            <li><a href="#">Payment Master</a></li>
+                            <li><a href="#">Predefine Product Attribute</a></li>
+                            <li><a href="#">Whatsapp</a></li>
+                            <li><a href="#">Company Setting</a></li>
+
+                            <li><a href="#">Email Setting</a></li>
+                            <li><a href="#">Delivery Charge</a></li>
+                            <li><a href="#">SMS Template</a></li>
+                            <li><a href="#">SMS Log</a></li>
+                            <li><a href="#">Prefix</a></li>
+                            <li><a href="#">Delivery Partner</a></li>
+
+                            <li><a href="#">Serviceable Area</a></li>
+                            <li><a href="#">Additional Charge</a></li>
+                            <li><a href="#">Payment Terms</a></li>
+                            <li><a href="#">Inventory Setting</a></li>
+                            <li><a href="#">Financial Year</a></li>
+                            <li><a href="#">Report Setting</a></li>
+
+                            <li><a href="#">Activity Log</a></li>
+                            <li><a href="#">Decimal Setting</a></li>
+                            <li><a href="#">City Master</a></li>
+                        </ul>
+                    </li>
+
+                    <li><a href="#"><i class="fas fa-history"></i> Versions</a></li>
+                </ul>
+            </div>
+        </aside>
+        <div class="perchesRight">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="d-flex align-items-center justify-content-between breadBrumb">
+                            <h3>Inward Stock</h3>
+                            <ul class="d-flex">
+                                <li><a href="#"><i class="fas fa-home"></i></a></li>
+                                <li><a href="#">Purchase Order</a></li>
+                                <li>Inward Stock</li>
+                            </ul>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                
+                    <div class="row">
+                        <div class="col-lg-4 col-md-4 col-sm-12 col-12">
+                            <div class="commonBox h-100">
+                                <div class="stickyPannel">
+                                    <div class="mb-3 form-group relative formBox">
+                                        <!-- <h5 class="mb-3"><i class="fas fa-upload"></i> Bulk Upload xls</h5> -->
+                                        <div class="file-upload btn">
+                                            <span>Upload Xls</span>
+                                            <input type="file" name="FileAttachment" id="FileAttachment" class="upload" />
+                                        </div>
+                                        <input type="text" class="fileuploadur" id="fileuploadurl" readonly placeholder="Maximum file size is 1GB">
+                                    </div>
+                                    <div class="mb-3 form-group relative formBox d-flex align-items-center">
+                                        <label for="">Opening Stock</label>
+                                        <div class="checkbox checkbox-primary">
+                                            <input id="checkbox2" class="styled" type="checkbox">
+                                            <label for="checkbox2"></label>
+                                        </div>
+                                    </div>
+                                    <div class="mb-3 form-group relative formBox">
+                                        <label for="">Supplier</label>
+                                        <div class="upplierBox d-flex">
+                                            <a href="#"><span><i class="fas fa-users"></i></span>Add</a>
+                                            <input type="text" name="" id="datepicker-2" class="form-control input-1">
+                                        </div>
+                                    </div>
+                                    <div class="mb-3 form-group relative formBox">
+                                        <label for="">Invoice Date</label>
+                                        <input type="text" name="" id="datepicker" class="date form-control input-1" readonly="readonly" placeholder="Date">
+                                    </div>
+                                    <div class="mb-3 form-group relative formBox">
+                                        <label for="">Inward Date</label>
+                                        <input type="text" name="" id="datepicker-2" class="date form-control input-1" readonly="readonly" placeholder="Date">
+                                    </div>
+                                    <div class="mb-4 form-group relative formBox">
+                                        <div class="d-flex">
+                                            <!-- <h5 class="mb-4"><i class="fas fa-upload"></i> Upload Invoice</h5> -->
+                                            <div class="file-upload btn btn-primary">
+                                                <span>Upload Invoice</span>
+                                                <input type="file" name="FileAttachment2" id="FileAttachment2" class="upload" />
+                                            </div>
+                                             <input class="fileuploadur" type="text" id="fileuploadurl2" readonly placeholder="Maximum file size is 1GB">
+                                        </div>
+                                    </div>
+                                    <div class="mb-4 relative formBox d-flex align-items-center">
+                                        <div class="addPaymentMethod">
+                                            <a href="#" class="mainBtn">Add Payment Mode</a>
+                                        </div>
+                                        <div class="unpaidAmt ml-3">
+                                            Unpaid Amt <span>1200</span>
+                                        </div>
+                                    </div>
+                                    <div class="mb-4 form-group relative formBox">
+                                        <div class="row g-2">
+                                            <div class="col">
+                                                <div class="form-group relative formBox">
+                                                    <input type="text" name="" class="form-control input-1" placeholder="Due Days">
+                                                </div>
+                                            </div>
+                                            <div class="col">
+                                                <div class="form-group relative formBox">
+                                                    <input type="text" name="" class="form-control input-1" placeholder="Due Date">
+                                                </div>
+                                            </div>
+                                            <div class="col-auto">
+                                                <div class="form-group relative formBox d-flex align-items-end h-100">
+                                                    <button type="button" class="saveBtn">Save</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+
+                                    <!-- <div class="mb-3 form-group relative formBox">
+                                        <button type="button" class="mainBtn">Submit</button>
+                                    </div> -->
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-8 col-md-8 col-sm-12 col-12">
+                            <div class="commonBox">
+                                <div class="grossQty">
+                                    <ul class="d-flex">
+                                        <li>Total Qty <span>5</span></li>
+                                        <li>Gross Total <span>₹1200</span></li>
+                                        <li>tax <span><i class="fas fa-info-circle"></i></span> <span>₹300</span></li>
+                                        <li>Grand Total <span>₹1500</span></li>
+                                    </ul>
+                                </div>
+                                <div class="enterBarcode mb-3 d-flex justify-content-between">
+                                    <div class="form-group relative enterBarcodeSrc">
+                                      <input type="text" name="" id="" class="form-control input-1">
+                                      <button type="button" class="searchBtn"><i class="fas fa-search"></i></button>
+                                    </div>
+                                    <div>dfdsfds</div>
+                                </div>
+                                <div class="inwordTableWrap">
+                                    <div class="table-responsive">
+                                        <table class="inwordTable table-striped table-hover table">
+                                            <thead>
+                                                <tr>
+                                                    <th><i class="fas fa-times"></i></th>
+                                                    <th>Add Qty</th>
+                                                    <th>Free Qty</th>
+                                                    <th>Barcode</th>
+                                                    <th>Prod Name</th>
+                                                    <th>Prod Code</th>
+                                                    <th>Size</th>
+                                                    <th>Batch No</th>
+                                                    <th>Base Price</th>
+                                                    <th>Disc % & Amt</th>
+                                                    <th>Scheme % & Amt</th>
+                                                    <th>Free % & Amt</th>
+                                                    <th>Cost Price</th>
+                                                    <th>GST % & Amt</th>
+                                                    <th>Extra Charge</th>
+                                                    <th>Profit % & Amt</th>
+                                                    <th>SellPrice</th>
+                                                    <th>GST % & Amt</th>
+                                                    <th>Offer Price</th>
+                                                    <th>MRP</th>
+                                                    <th>Mfg Date</th>
+                                                    <th>Exp Date</th>
+                                                    <th>Total Cost</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td><a href="#"><i class="fas fa-times"></i></a></td>
+                                                    <td class="greenBg">1</td>
+                                                    <td class="greenBg">0</td>
+                                                    <td>2565835</td>
+                                                    <td>test</td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td class="greenBg"></td>
+                                                    <td class="greenBg">1000.00</td>
+                                                    <td class="greenBg">0</td>
+                                                    <td>0.00</td>
+                                                    <td class="greenBg">0</td>
+                                                    <td>0.00</td>
+                                                    <td>0</td>
+                                                    <td>0.00</td>
+                                                    <td>1000.00</td>
+                                                    <td class="greenBg">12.00</td>
+                                                    <td>120</td>
+                                                    <td class="greenBg">0.00</td>
+                                                    <td>50.00</td>
+                                                    <td>500.00</td>
+                                                    <td>150.00</td>
+                                                    <td>12.00</td>
+                                                </tr>
+                                                <tr>
+                                                    <td><a href="#"><i class="fas fa-times"></i></a></td>
+                                                    <td class="greenBg">1</td>
+                                                    <td class="greenBg">0</td>
+                                                    <td>2565835</td>
+                                                    <td>test</td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td class="greenBg"></td>
+                                                    <td class="greenBg">1000.00</td>
+                                                    <td class="greenBg">0</td>
+                                                    <td>0.00</td>
+                                                    <td class="greenBg">0</td>
+                                                    <td>0.00</td>
+                                                    <td>0</td>
+                                                    <td>0.00</td>
+                                                    <td>1000.00</td>
+                                                    <td class="greenBg">12.00</td>
+                                                    <td>120</td>
+                                                    <td class="greenBg">0.00</td>
+                                                    <td>50.00</td>
+                                                    <td>500.00</td>
+                                                    <td>150.00</td>
+                                                    <td>12.00</td>
+                                                </tr>
+                                                <tr>
+                                                    <td><a href="#"><i class="fas fa-times"></i></a></td>
+                                                    <td class="greenBg">1</td>
+                                                    <td class="greenBg">0</td>
+                                                    <td>2565835</td>
+                                                    <td>test</td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td class="greenBg"></td>
+                                                    <td class="greenBg">1000.00</td>
+                                                    <td class="greenBg">0</td>
+                                                    <td>0.00</td>
+                                                    <td class="greenBg">0</td>
+                                                    <td>0.00</td>
+                                                    <td>0</td>
+                                                    <td>0.00</td>
+                                                    <td>1000.00</td>
+                                                    <td class="greenBg">12.00</td>
+                                                    <td>120</td>
+                                                    <td class="greenBg">0.00</td>
+                                                    <td>50.00</td>
+                                                    <td>500.00</td>
+                                                    <td>150.00</td>
+                                                    <td>12.00</td>
+                                                </tr>
+                                                <tr>
+                                                    <td><a href="#"><i class="fas fa-times"></i></a></td>
+                                                    <td class="greenBg">1</td>
+                                                    <td class="greenBg">0</td>
+                                                    <td>2565835</td>
+                                                    <td>test</td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td class="greenBg"></td>
+                                                    <td class="greenBg">1000.00</td>
+                                                    <td class="greenBg">0</td>
+                                                    <td>0.00</td>
+                                                    <td class="greenBg">0</td>
+                                                    <td>0.00</td>
+                                                    <td>0</td>
+                                                    <td>0.00</td>
+                                                    <td>1000.00</td>
+                                                    <td class="greenBg">12.00</td>
+                                                    <td>120</td>
+                                                    <td class="greenBg">0.00</td>
+                                                    <td>50.00</td>
+                                                    <td>500.00</td>
+                                                    <td>150.00</td>
+                                                    <td>12.00</td>
+                                                </tr>
+                                                <tr>
+                                                    <td><a href="#"><i class="fas fa-times"></i></a></td>
+                                                    <td class="greenBg">1</td>
+                                                    <td class="greenBg">0</td>
+                                                    <td>2565835</td>
+                                                    <td>test</td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td class="greenBg"></td>
+                                                    <td class="greenBg">1000.00</td>
+                                                    <td class="greenBg">0</td>
+                                                    <td>0.00</td>
+                                                    <td class="greenBg">0</td>
+                                                    <td>0.00</td>
+                                                    <td>0</td>
+                                                    <td>0.00</td>
+                                                    <td>1000.00</td>
+                                                    <td class="greenBg">12.00</td>
+                                                    <td>120</td>
+                                                    <td class="greenBg">0.00</td>
+                                                    <td>50.00</td>
+                                                    <td>500.00</td>
+                                                    <td>150.00</td>
+                                                    <td>12.00</td>
+                                                </tr>
+                                                <tr>
+                                                    <td><a href="#"><i class="fas fa-times"></i></a></td>
+                                                    <td class="greenBg">1</td>
+                                                    <td class="greenBg">0</td>
+                                                    <td>2565835</td>
+                                                    <td>test</td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td class="greenBg"></td>
+                                                    <td class="greenBg">1000.00</td>
+                                                    <td class="greenBg">0</td>
+                                                    <td>0.00</td>
+                                                    <td class="greenBg">0</td>
+                                                    <td>0.00</td>
+                                                    <td>0</td>
+                                                    <td>0.00</td>
+                                                    <td>1000.00</td>
+                                                    <td class="greenBg">12.00</td>
+                                                    <td>120</td>
+                                                    <td class="greenBg">0.00</td>
+                                                    <td>50.00</td>
+                                                    <td>500.00</td>
+                                                    <td>150.00</td>
+                                                    <td>12.00</td>
+                                                </tr>
+                                                <tr>
+                                                    <td><a href="#"><i class="fas fa-times"></i></a></td>
+                                                    <td class="greenBg">1</td>
+                                                    <td class="greenBg">0</td>
+                                                    <td>2565835</td>
+                                                    <td>test</td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td class="greenBg"></td>
+                                                    <td class="greenBg">1000.00</td>
+                                                    <td class="greenBg">0</td>
+                                                    <td>0.00</td>
+                                                    <td class="greenBg">0</td>
+                                                    <td>0.00</td>
+                                                    <td>0</td>
+                                                    <td>0.00</td>
+                                                    <td>1000.00</td>
+                                                    <td class="greenBg">12.00</td>
+                                                    <td>120</td>
+                                                    <td class="greenBg">0.00</td>
+                                                    <td>50.00</td>
+                                                    <td>500.00</td>
+                                                    <td>150.00</td>
+                                                    <td>12.00</td>
+                                                </tr>
+                                                <tr>
+                                                    <td><a href="#"><i class="fas fa-times"></i></a></td>
+                                                    <td class="greenBg">1</td>
+                                                    <td class="greenBg">0</td>
+                                                    <td>2565835</td>
+                                                    <td>test</td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td class="greenBg"></td>
+                                                    <td class="greenBg">1000.00</td>
+                                                    <td class="greenBg">0</td>
+                                                    <td>0.00</td>
+                                                    <td class="greenBg">0</td>
+                                                    <td>0.00</td>
+                                                    <td>0</td>
+                                                    <td>0.00</td>
+                                                    <td>1000.00</td>
+                                                    <td class="greenBg">12.00</td>
+                                                    <td>120</td>
+                                                    <td class="greenBg">0.00</td>
+                                                    <td>50.00</td>
+                                                    <td>500.00</td>
+                                                    <td>150.00</td>
+                                                    <td>12.00</td>
+                                                </tr>
+                                                <tr>
+                                                    <td><a href="#"><i class="fas fa-times"></i></a></td>
+                                                    <td class="greenBg">1</td>
+                                                    <td class="greenBg">0</td>
+                                                    <td>2565835</td>
+                                                    <td>test</td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td class="greenBg"></td>
+                                                    <td class="greenBg">1000.00</td>
+                                                    <td class="greenBg">0</td>
+                                                    <td>0.00</td>
+                                                    <td class="greenBg">0</td>
+                                                    <td>0.00</td>
+                                                    <td>0</td>
+                                                    <td>0.00</td>
+                                                    <td>1000.00</td>
+                                                    <td class="greenBg">12.00</td>
+                                                    <td>120</td>
+                                                    <td class="greenBg">0.00</td>
+                                                    <td>50.00</td>
+                                                    <td>500.00</td>
+                                                    <td>150.00</td>
+                                                    <td>12.00</td>
+                                                </tr>
+                                                <tr>
+                                                    <td><a href="#"><i class="fas fa-times"></i></a></td>
+                                                    <td class="greenBg">1</td>
+                                                    <td class="greenBg">0</td>
+                                                    <td>2565835</td>
+                                                    <td>test</td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td class="greenBg"></td>
+                                                    <td class="greenBg">1000.00</td>
+                                                    <td class="greenBg">0</td>
+                                                    <td>0.00</td>
+                                                    <td class="greenBg">0</td>
+                                                    <td>0.00</td>
+                                                    <td>0</td>
+                                                    <td>0.00</td>
+                                                    <td>1000.00</td>
+                                                    <td class="greenBg">12.00</td>
+                                                    <td>120</td>
+                                                    <td class="greenBg">0.00</td>
+                                                    <td>50.00</td>
+                                                    <td>500.00</td>
+                                                    <td>150.00</td>
+                                                    <td>12.00</td>
+                                                </tr>
+                                                <tr>
+                                                    <td><a href="#"><i class="fas fa-times"></i></a></td>
+                                                    <td class="greenBg">1</td>
+                                                    <td class="greenBg">0</td>
+                                                    <td>2565835</td>
+                                                    <td>test</td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td class="greenBg"></td>
+                                                    <td class="greenBg">1000.00</td>
+                                                    <td class="greenBg">0</td>
+                                                    <td>0.00</td>
+                                                    <td class="greenBg">0</td>
+                                                    <td>0.00</td>
+                                                    <td>0</td>
+                                                    <td>0.00</td>
+                                                    <td>1000.00</td>
+                                                    <td class="greenBg">12.00</td>
+                                                    <td>120</td>
+                                                    <td class="greenBg">0.00</td>
+                                                    <td>50.00</td>
+                                                    <td>500.00</td>
+                                                    <td>150.00</td>
+                                                    <td>12.00</td>
+                                                </tr>
+                                                <tr>
+                                                    <td><a href="#"><i class="fas fa-times"></i></a></td>
+                                                    <td class="greenBg">1</td>
+                                                    <td class="greenBg">0</td>
+                                                    <td>2565835</td>
+                                                    <td>test</td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td class="greenBg"></td>
+                                                    <td class="greenBg">1000.00</td>
+                                                    <td class="greenBg">0</td>
+                                                    <td>0.00</td>
+                                                    <td class="greenBg">0</td>
+                                                    <td>0.00</td>
+                                                    <td>0</td>
+                                                    <td>0.00</td>
+                                                    <td>1000.00</td>
+                                                    <td class="greenBg">12.00</td>
+                                                    <td>120</td>
+                                                    <td class="greenBg">0.00</td>
+                                                    <td>50.00</td>
+                                                    <td>500.00</td>
+                                                    <td>150.00</td>
+                                                    <td>12.00</td>
+                                                </tr>
+                                                <tr>
+                                                    <td><a href="#"><i class="fas fa-times"></i></a></td>
+                                                    <td class="greenBg">1</td>
+                                                    <td class="greenBg">0</td>
+                                                    <td>2565835</td>
+                                                    <td>test</td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td class="greenBg"></td>
+                                                    <td class="greenBg">1000.00</td>
+                                                    <td class="greenBg">0</td>
+                                                    <td>0.00</td>
+                                                    <td class="greenBg">0</td>
+                                                    <td>0.00</td>
+                                                    <td>0</td>
+                                                    <td>0.00</td>
+                                                    <td>1000.00</td>
+                                                    <td class="greenBg">12.00</td>
+                                                    <td>120</td>
+                                                    <td class="greenBg">0.00</td>
+                                                    <td>50.00</td>
+                                                    <td>500.00</td>
+                                                    <td>150.00</td>
+                                                    <td>12.00</td>
+                                                </tr>
+                                                <tr>
+                                                    <td><a href="#"><i class="fas fa-times"></i></a></td>
+                                                    <td class="greenBg">1</td>
+                                                    <td class="greenBg">0</td>
+                                                    <td>2565835</td>
+                                                    <td>test</td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td class="greenBg"></td>
+                                                    <td class="greenBg">1000.00</td>
+                                                    <td class="greenBg">0</td>
+                                                    <td>0.00</td>
+                                                    <td class="greenBg">0</td>
+                                                    <td>0.00</td>
+                                                    <td>0</td>
+                                                    <td>0.00</td>
+                                                    <td>1000.00</td>
+                                                    <td class="greenBg">12.00</td>
+                                                    <td>120</td>
+                                                    <td class="greenBg">0.00</td>
+                                                    <td>50.00</td>
+                                                    <td>500.00</td>
+                                                    <td>150.00</td>
+                                                    <td>12.00</td>
+                                                </tr>
+                                                <tr>
+                                                    <td><a href="#"><i class="fas fa-times"></i></a></td>
+                                                    <td class="greenBg">1</td>
+                                                    <td class="greenBg">0</td>
+                                                    <td>2565835</td>
+                                                    <td>test</td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td class="greenBg"></td>
+                                                    <td class="greenBg">1000.00</td>
+                                                    <td class="greenBg">0</td>
+                                                    <td>0.00</td>
+                                                    <td class="greenBg">0</td>
+                                                    <td>0.00</td>
+                                                    <td>0</td>
+                                                    <td>0.00</td>
+                                                    <td>1000.00</td>
+                                                    <td class="greenBg">12.00</td>
+                                                    <td>120</td>
+                                                    <td class="greenBg">0.00</td>
+                                                    <td>50.00</td>
+                                                    <td>500.00</td>
+                                                    <td>150.00</td>
+                                                    <td>12.00</td>
+                                                </tr>
+                                                <tr>
+                                                    <td><a href="#"><i class="fas fa-times"></i></a></td>
+                                                    <td class="greenBg">1</td>
+                                                    <td class="greenBg">0</td>
+                                                    <td>2565835</td>
+                                                    <td>test</td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td class="greenBg"></td>
+                                                    <td class="greenBg">1000.00</td>
+                                                    <td class="greenBg">0</td>
+                                                    <td>0.00</td>
+                                                    <td class="greenBg">0</td>
+                                                    <td>0.00</td>
+                                                    <td>0</td>
+                                                    <td>0.00</td>
+                                                    <td>1000.00</td>
+                                                    <td class="greenBg">12.00</td>
+                                                    <td>120</td>
+                                                    <td class="greenBg">0.00</td>
+                                                    <td>50.00</td>
+                                                    <td>500.00</td>
+                                                    <td>150.00</td>
+                                                    <td>12.00</td>
+                                                </tr>
+                                                
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                <!-- <div class="browsArea mt-3 mb-3">
+                    <div class="row g-2 justify-content-md-center">
+                        <div class="col-lg col-md col-sm-6 col">
+                            
+                        </div>
+                        <div class="col-lg col-md col-sm-6 col">
+                            <div class="whiteBoxShadow text-center d-flex align-items-center justify-content-center">
+                                <ul class="d-flex grossGrand">
+                                    <li><span>5</span>Total Qty</li>
+                                    <li><span>1200</span>Gross Total</li>
+                                    <li><span>1200</span>Grand Total</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-auto col-md-auto col-sm-6 col-6">
+                            <div class="whiteBoxShadow">
+                                <h5 class="mb-4"><i class="fas fa-upload"></i> Upload Invoice</h5>
+                                <div class="file-upload btn btn-primary">
+                                    <span>Upload Invoice</span>
+                                    <input type="file" name="FileAttachment2" id="FileAttachment2" class="upload" />
+                                </div>
+                                <input class="fileuploadur" type="text" id="fileuploadurl2" readonly placeholder="Maximum file size is 1GB">
+                            </div>
+                        </div>
+                        <div class="col-lg-auto col-md-auto col-sm-6 col-6">
+                            <div class="whiteBoxShadow">
+                                <div class="row g-2">
+                                    <div class="col">
+                                        <div class="form-group relative formBox">
+                                            <label for="">Due Days</label>
+                                        <input type="text" name="" class="form-control input-1">
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="form-group relative formBox">
+                                            <label for="">Due Date</label>
+                                        <input type="text" name="" class="form-control input-1">
+                                        </div>
+                                    </div>
+                                    <div class="col-auto">
+                                        <div class="form-group relative formBox d-flex align-items-end h-100">
+                                            <button type="button" class="saveBtn">Save</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div> -->
+            </div>
+        </div>
+    </section>
+
+    <script type="text/javascript" src="../js/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="../js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function(e) {
+            // $('.sidebar ul li a').removeClass("active");
+            // $('.sidebar ul li a').removeClass("active");
+            $('.sidebar ul li a').on('click', function(e) {
+                if ($(this).hasClass("active")) {
+                    $(this).toggleClass("active");
+                } else {
+                    $('.sidebar ul li a').removeClass("active");
+                    $(this).toggleClass("active");
+                }
+                
+                if ($(this).siblings(".sub-menu").length > 0) {
+                    e.preventDefault();
+                    $(this).closest(".menu-item").siblings(".menu-item").find('.sub-menu').slideUp();
+                    var x = $(this).closest(".menu-item").siblings().find('.sub-menu');
+                    //console.log(x);
+                    $(this).siblings(".sub-menu").slideToggle();
+
+                    // alert("X1");
+                } else {
+
+                    // alert("X2");
+                }
+            });
+        });
+    </script>
+
+    <script>
+        $(document).ready(function(e) {
+            $("#datepicker").datepicker({
+                firstDay: 1,
+                showOtherMonths: true,
+                changeMonth: true,
+                changeYear: true,
+                dateFormat: "dd.mm.yy"
+            });
+
+            $("#datepicker-2").datepicker({
+                firstDay: 1,
+                showOtherMonths: true,
+                changeMonth: true,
+                changeYear: true,
+                dateFormat: "dd.mm.yy"
+            });
+
+            $(".date").mousedown(function() {
+            $(".ui-datepicker").addClass("active");
+            });
+            
+        });
+    </script>
+    <script>
+        $(document).ready(function(e) {
+            document.getElementById("FileAttachment").onchange = function () {
+            document.getElementById("fileuploadurl").value = this.value;
+        };
+            document.getElementById("FileAttachment2").onchange = function () {
+            document.getElementById("fileuploadurl2").value = this.value;
+        };
+            
+        });
+    </script>
+</body>
+</html>

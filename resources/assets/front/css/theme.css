@@ -1,0 +1,25 @@
+:root {
+    --mainBg: #fff;
+    --secondaryBg: #f6f5ff;
+    --primaryBg: #17132a;
+    --tartiaryBgColor: #c9571b;
+    --activeColor: #c9571b;
+    --primaryTextColor: #000000;
+    --secondaryTextColor: #fff;
+    --tartiaryTextColor: #ec8b16;
+    --iconPrimarycolor: #d3681b;
+    --inputBgmain: #17132a;
+}
+
+.darkMode {
+    --mainBg: rgb(41, 40, 40);
+    --secondaryBg: #000;
+    --primaryBg: #17132a;
+    --tartiaryBgColor: #c9571b;
+    --activeColor: #c9571b;
+    --primaryTextColor: #fff;
+    --secondaryTextColor: #fff;
+    --tartiaryTextColor: #ec8b16;
+    --iconPrimarycolor: #d3681b;
+    --inputBgmain: #17132a;
+}

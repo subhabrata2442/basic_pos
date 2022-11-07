@@ -1,0 +1,171 @@
+@import "mixin";
+
+.input-1 {
+    @include input();
+    border: #e1dcdc 1px solid;
+    height: 44px;
+    &:focus {
+        box-shadow: none !important;
+        outline: 0;
+    }
+}
+
+.input-2 {
+    @include input();
+    border: #e4e4e4 1px solid;
+    height: 46px;
+    border-radius: 6px;
+
+    &:focus {
+        box-shadow: none !important;
+        outline: 0;
+    }
+}
+
+.input-3 {
+    @include input();
+    border: none;
+    border-bottom: #b7b7b7 1px solid;
+    height: 50px;
+
+    &:focus {
+        box-shadow: none !important;
+        outline: 0;
+    }
+}
+
+.input-4 {
+    @include input-4();
+
+    @include placeholder {
+        font-family: 'Montserrat';
+        font-size: 18px;
+        color: #fff;
+    }
+
+    height: 54px;
+
+    &:focus {
+        background: rgba(255, 255, 255, .2);
+        box-shadow: none !important;
+        outline: 0;
+    }
+}
+
+.input-5 {
+    @include input();
+    border: none;
+    border-bottom: #b7b7b7 1px solid;
+    height: 50px;
+    padding: 0;
+
+    &:focus {
+        box-shadow: none !important;
+        outline: 0;
+    }
+}
+
+.input-6 {
+    @include input();
+    border: #dcdcdc 1px solid;
+    height: 10vw;
+    border-radius: 30px;
+    &:focus {
+        box-shadow: none !important;
+        outline: 0;
+    }
+}
+
+.telInput {
+	background-color: transparent;
+	border: none;
+	width: calc(100% - 40px);
+	height: 10vw;
+    font-family: 'Gentona';
+    &:focus {
+        box-shadow: none !important;
+        outline: 0;
+    }
+}
+
+.selectOption {
+    appearance: none;
+    background: rgba(255, 255, 255, 1) url(../images/angle-arrow-down.png) center right 10px no-repeat;
+    background-size: 10px;
+    padding: 0 0.75rem;
+    border: #eee 1px solid;
+    width: 100%;
+    height: 10vw;
+    font-size: 3vw;
+    font-family: 'Gentona';
+}
+
+.selectOption-2 {
+    appearance: none;
+    background: rgba(255, 255, 255, 1) url(../images/angle-arrow-down.png) bottom 13px right 10px no-repeat;
+    background-size: 10px;
+    padding: 0;
+    border: #eee 1px solid;
+    width: 100%;
+    border: none;
+    border-bottom: #b7b7b7 1px solid;
+    height: 12vw;
+    font-family: 'Gentona';
+
+    &:focus {
+        box-shadow: none !important;
+    }
+}
+
+.selectOption-3 {
+    appearance: none;
+    background: rgba(255, 255, 255, 1) url(../images/angle-arrow-down.png) bottom 13px right 10px no-repeat;
+    background-size: 10px;
+    padding: 0 0.75rem;
+    border: #eee 1px solid;
+    width: 100%;
+    border: none;
+    border-bottom: #b7b7b7 1px solid;
+    height: 12vw;
+    font-family: 'Gentona';
+
+    &:focus {
+        box-shadow: none !important;
+    }
+}
+
+.selectOption-4 {
+    appearance: none;
+    background: rgba(255, 255, 255, 1) url(../images/angle-arrow-down-b.png) center right 5vw no-repeat;
+    background-size: 3vw;
+    padding: 0 0.75rem;
+    border: #dcdcdc 1px solid;
+    width: 100%;
+    height: 10vw;
+    font-size: 3vw;
+    border-radius: 30px;
+    font-family: 'Nunito Sans';
+}
+.mainBtn{
+    @include btn();
+}
+.blueBdrBtn{
+    @include blueBdr();
+}
+.textArea-1 {
+    @include input-4();
+
+    @include placeholder {
+        font-size: 15px;
+        color: #b1b1b1;
+    }
+
+    resize: none;
+    height: 100px;
+
+    &:focus {
+        box-shadow: none !important;
+        background: rgba(255, 255, 255, .2);
+    }
+}
+
