@@ -1,0 +1,88 @@
+.plusBoxWrap {
+    padding-right: 60px;
+}
+.plusBox {
+	position: absolute;
+	right: 0;
+	bottom: 17px;
+	width: 50px;
+}
+.plusBox .plusBoxBtn {
+    display: block;
+    text-align: center;
+    height: 38px;
+    line-height: 38px;
+    background: #f3f3f3;
+    color: #000;
+    border-radius: 3px;
+  }
+ .toggleBtn {
+    color: #333;
+    font-weight: bold;
+    font-size: 16px;
+ } 
+
+.sidebar-mini .main-sidebar .nav-link, .sidebar-mini-md .main-sidebar .nav-link, .sidebar-mini-xs .main-sidebar .nav-link {
+	width: calc(250px - 1.4rem * 2);
+}
+.main-sidebar, .main-sidebar::before {
+	transition: margin-left .3s ease-in-out,width .3s ease-in-out;
+	width: 218px;
+}
+
+.layout-navbar-fixed .wrapper .brand-link {
+	width: 218px;
+}
+ 
+/* body:not(.sidebar-mini-md):not(.sidebar-mini-xs):not(.layout-top-nav) .content-wrapper, body:not(.sidebar-mini-md):not(.sidebar-mini-xs):not(.layout-top-nav) .main-footer, body:not(.sidebar-mini-md):not(.sidebar-mini-xs):not(.layout-top-nav) .main-header {
+	width: 218px;
+} */
+.layout-navbar-fixed .wrapper .main-sidebar:hover .brand-link {
+	transition: width .3s ease-in-out;
+	width: 218px;
+}
+
+@media (min-width: 768px) {
+    body:not(.sidebar-mini-md):not(.sidebar-mini-xs):not(.layout-top-nav)
+      .content-wrapper,
+    body:not(.sidebar-mini-md):not(.sidebar-mini-xs):not(.layout-top-nav)
+      .main-footer,
+    body:not(.sidebar-mini-md):not(.sidebar-mini-xs):not(.layout-top-nav)
+      .main-header {
+      margin-left: 218px;
+    }
+  }
+
+  .fa-plus-circle {
+    color: #333;
+  }
+
+  .add_mobile_repeat_sec , .repeatArea {
+    position: relative;
+  }
+  .add_mobile_repeat_sec a  {
+	position: absolute;
+	right: -32px;
+	color: #333;
+	bottom: 0px;
+	font-weight: bold;
+	height: 38px;
+	width: 32px;
+	text-align: center;
+	line-height: 38px;
+}
+.repeatArea a.delete_btn {
+	font-weight: bold;
+	width: 32px;
+	text-align: center;
+	line-height: 38px;
+	display: block;
+	color: #333;
+	position: relative;
+	bottom: -9px;
+}
+
+.add_mobile_repeat_sec:not(:last-child) , .repeatArea:not(:last-child) {
+    margin-bottom: 15px;
+}
+

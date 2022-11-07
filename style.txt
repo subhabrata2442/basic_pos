@@ -1,0 +1,14 @@
+****For the Button tag class
+commonBtn-btnTag
+
+****For the a tag class
+commonBtn-aTag
+
+****For admin error messages
+.error.admin-erorr
+
+****For admin input style
+.admin-input
+
+****For admin textare style
+.admin-textarea
